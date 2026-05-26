@@ -8,7 +8,7 @@ project:
   description:  "An iterative AES-128 hardware accelerator utilizing 8-bit stream serialization."
   language:     "Verilog"
   clock_hz:     10000000
-  tiles:        "1x1"
+  tiles:        "6x2"
   top_module:   "tt_um_aes_128_wrapper"
   wokwi_id:     0
   source_files:
