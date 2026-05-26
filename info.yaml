@@ -52,5 +52,3 @@ pinout:
   uio[5]: "byte_idx[0]"
   uio[6]: "byte_idx[1]"
   uio[7]: "byte_idx[2]"
-
-  yaml_version: 6
