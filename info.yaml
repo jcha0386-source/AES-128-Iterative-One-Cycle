@@ -11,10 +11,14 @@ project:
   # Your top module name must start with "tt_um_". Make it unique by including your github username:
   top_module:  "tt_um_aes128_iterative"
 source_files:
-  - "aes_top.v"
-  - "shiftrows.v"
-  - "key_expansion.v"
-  - "tt_um_aes128_iterative.v"
+    - "tt_um_aes_128_wrapper.v"
+    - "aes_top.v"
+    - "key_expansion.v"
+    - "mixcolumns.v"
+    - "mixcolumns_one_column.v"
+    - "sbox.v"
+    - "shiftrows.v"
+    - "subbytes.v"
 
 # The pinout of your project. Leave unused pins blank. DO NOT delete or add any pins.
 # This section is for the datasheet/website. Use descriptive names (e.g., RX, TX, MOSI, SCL, SEG_A, etc.).
