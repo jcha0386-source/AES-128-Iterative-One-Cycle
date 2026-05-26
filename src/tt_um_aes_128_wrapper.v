@@ -1,4 +1,5 @@
 `default_nettype none
+/* verilator lint_off UNUSED */
 
 module tt_um_aes_128_wrapper (
     input  wire [7:0] ui_in,    // Dedicated inputs
