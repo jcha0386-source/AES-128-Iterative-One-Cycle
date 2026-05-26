@@ -1,16 +1,17 @@
+yaml_version: 6
+
 # Tiny Tapeout project information
 project:
-  title:        "Iterative AES-128 Core"      # Project title
-  author:       "Jiun Yu Chan"      # Your name
-  discord:      ""      # Your discord username, for communication and automatically assigning you a Tapeout role (optional)
-  description:  "An iterative AES-128 hardware accelerator utilizing 8-bit stream serialization."      # One line description of what your project does
-  language:     "Verilog" 
-  clock_hz:     10000000       # Clock frequency in Hz 
-  tiles: "1x1"          
-
-  # Your top module name must start with "tt_um_". Make it unique by including your github username:
-  top_module:  "tt_um_aes128_iterative"
-source_files:
+  title:        "Iterative AES-128 Core"
+  author:       "Jiun Yu"
+  discord:      ""
+  description:  "An iterative AES-128 hardware accelerator utilizing 8-bit stream serialization."
+  language:     "Verilog"
+  clock_hz:     10000000
+  tiles:        "1x1"
+  top_module:   "tt_um_aes_128_wrapper"
+  wokwi_id:     0
+  source_files:
     - "tt_um_aes_128_wrapper.v"
     - "aes_top.v"
     - "key_expansion.v"
@@ -20,8 +21,7 @@ source_files:
     - "shiftrows.v"
     - "subbytes.v"
 
-# The pinout of your project. Leave unused pins blank. DO NOT delete or add any pins.
-# This section is for the datasheet/website. Use descriptive names (e.g., RX, TX, MOSI, SCL, SEG_A, etc.).
+# The pinout of your project.
 pinout:
   # Inputs
   ui[0]: "data_in[0]"
@@ -52,6 +52,3 @@ pinout:
   uio[5]: "byte_idx[0]"
   uio[6]: "byte_idx[1]"
   uio[7]: "byte_idx[2]"
-
-# Do not change!
-yaml_version: 6
