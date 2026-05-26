@@ -1,7 +1,7 @@
 # Tiny Tapeout project information
 project:
   title:        "Iterative AES-128 Core"      # Project title
-  author:       "Your Names / Group ID"      # Your name
+  author:       "Jiun Yu Chan"      # Your name
   discord:      ""      # Your discord username, for communication and automatically assigning you a Tapeout role (optional)
   description:  "An iterative AES-128 hardware accelerator utilizing 8-bit stream serialization."      # One line description of what your project does
   language:     "Verilog" 
