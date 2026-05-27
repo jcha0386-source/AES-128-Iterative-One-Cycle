@@ -12,49 +12,44 @@ module tt_um_aes_128_wrapper (
     input  wire       rst_n     // reset_n - active low
 );
 
-    
+    // --- DECLARED AT THE TOP TO FIX MODELSIM COMPILE ERRORS ---
+    wire core_busy;
+    wire core_done;
+    wire [127:0] core_ciphertext;
+
     // Control Pin Mapping via bidirectional IOs
-    // Configure all uio pins as inputs except for 'done' and 'busy' status
     assign uio_oe = 8'b00000011; // uio_out[0] and uio_out[1] are outputs
     assign uio_out[0] = core_busy;
     assign uio_out[1] = core_done;
     assign uio_out[7:2] = 6'b000000;
 
-    wire start_pulse = uio_in[2]; // Control signal to kick off encryption
-    wire load_ptext   = uio_in[3]; // Control signal to stream in plaintext
-    wire load_key     = uio_in[4]; // Control signal to stream in key
-    wire [3:0] byte_idx = uio_in[7:4]; // 0 to 15 index selection for loading/unloading
+    wire start_pulse = uio_in[2]; 
+    wire load_ptext  = uio_in[3]; 
+    wire load_key    = uio_in[4]; 
+    wire [3:0] byte_idx = uio_in[7:4]; 
 
-   
     // Shift/Storage Registers for 128-bit interfaces
-   
     reg [127:0] r_plaintext;
     reg [127:0] r_key;
-    wire [127:0] core_ciphertext;
-    wire core_busy;
-    wire core_done;
 
-    // Load inputs byte by byte
+    // Your exact original, clean linear byte-loading assignment
     always @(posedge clk or negedge rst_n) begin
         if (!rst_n) begin
             r_plaintext <= 128'd0;
             r_key       <= 128'd0;
         end else begin
             if (load_ptext) begin
-                // Update specific byte indexed by byte_idx
                 r_plaintext[127 - (byte_idx * 8) -: 8] <= ui_in;
             end
             if (load_key) begin
-                // Update specific byte indexed by byte_idx
                 r_key[127 - (byte_idx * 8) -: 8] <= ui_in;
             end
         end
     end
 
-    // Direct byte-mux for output streaming
+    // Your exact original output streaming assignment
     assign uo_out = core_ciphertext[127 - (byte_idx * 8) -: 8];
 
-    
     // Instantiate the AES-128 core
     aes_top u_aes_core (
         .clk(clk),
