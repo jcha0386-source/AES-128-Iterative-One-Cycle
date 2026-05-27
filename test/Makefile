@@ -42,7 +42,8 @@ VERILOG_SOURCES += $(PWD)/tb_aes_top.v
 TOPLEVEL = tb_aes_top
 
 # 4. Clear out the template's dummy Python script runner entirely:
-COCOTB_TEST_MODULES =
+# List test modules to run, separated by commas and without the .py suffix:
+COCOTB_TEST_MODULES = dummy_test
 
 # Include standard compiler rules to manage the hardware simulator execution tree
 include $(shell cocotb-config --makefiles)/Makefile.sim
