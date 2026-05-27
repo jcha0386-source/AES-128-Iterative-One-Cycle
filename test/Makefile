@@ -8,7 +8,7 @@ TOPLEVEL_LANG ?= verilog
 SRC_DIR = $(PWD)/../src
 
 # 1. Map all your custom AES design files located in the src/ directory:
-PROJECT_SOURCES = tt_um_aes_128_wrapper.v aes_top.v sbox.v key_expansion.v mixcolumns.v mixcolumn_one_column.v shiftrows.v subbytes.v
+PROJECT_SOURCES = tt_um_aes_128_wrapper.v aes_top.v sbox.v key_expansion.v mixcolumns.v mixcolumns_one_column.v shiftrows.v subbytes.v
 
 ifneq ($(GATES),yes)
 
