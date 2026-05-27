@@ -93,7 +93,7 @@ module tb_aes_top();
         end
 
         $display("Passed: %0d, Failed: %0d", pass, fail);
-        $finish;
+        // $finish;
     end
 
     // Waveform Generation Block
